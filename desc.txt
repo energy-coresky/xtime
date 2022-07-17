@@ -1,0 +1,2 @@
+This application contain `class Calendar` +
+controller with calendar visualization.

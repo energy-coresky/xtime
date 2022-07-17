@@ -1,0 +1,23 @@
+
+:count      count(Jet::$tpl)
+:current    Jet::$tpl[:count - 1][0]
+:marker     Jet::$tpl[:count - 1][1]
+:inner      'inner' == :marker
+:outer      ! :inner
+:std       '__std' == Jet::$tpl[0][0]
+:list       'list' == Jet::$tpl[0][1]
+
+:fn0        explode('_', Jet::$fn, 2)[0]
+:fn1        explode('_', Jet::$fn, 2)[1]
+:design     'dm' == :fn0 || 'd' == :fn0
+:mob        'dm' == :fn0 || 'm' == :fn0
+:pc         ! :mob
+:style      explode('-', :fn1)[0]
+:layout     explode('-', :fn1)[1]
+:svg        'svg' == :layout
+
+:caller     1 == :count ? '' : Jet::$tpl[:count - 2][1]
+:_1         $sky->_1
+:loop       0 != count(Jet::$loop)
+:dev        'WINNT' == PHP_OS
+:prod       ! :dev

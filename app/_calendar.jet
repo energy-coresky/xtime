@@ -1,0 +1,53 @@
+
+#.year ------------------------------------------------------------------------------
+@php $m=4; ~php
+<table width="100%" style="margin-top:10px;background:#fff; 
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+">
+@loop($_ < 12)
+    @if(0 == $_ % $m)<tr>~if
+    <td style="padding:20px">@block(.inner as b month)</td>
+    @if($m - 1 == $_ % $m)</tr>~if
+~loop
+</table>@{! $js !}
+#.year
+
+#.month ------------------------------------------------------------------------------
+<div class="month-pad">
+#.inner
+#if(:inner)
+    <a @href(run(['activity','calendar&dt=m{{$mon}}']))>{{$name}}#if(:mob) {{$year}}#end</a>
+#end
+<table width="100%" class="month" m="{{$mon}}">
+<tr>
+    {!$head!}<th style="background:gold;width:9%"><small>week</small></th>
+</tr>
+@loop($weeks as $one)
+    <tr>{!$one!}</tr>
+~loop
+</table>
+#.inner
+</div>
+<div id="cr-table">
+    ~@blue($mday, '', $viewday)
+    ~@inc(_activity.inner)
+    <div style="font-size:12px;margin-top:3px;">Total: @{{$total}}</div>
+</div>@{! $js !}
+#.month
+
+#.empty
+@inc(.year)
+#.empty
+
+
+
+
+
+~@blue("Year &nbsp;$select", $ctrl, $right) 
+
+@loop($_<1)
+    <p>{{$q}}222
+~loop
