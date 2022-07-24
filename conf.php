@@ -1,6 +1,6 @@
 <?php
 
 $plans = [
-    'view' => ['path' => __DIR__ . '/app'],
+    'view' => ['path' => __DIR__ . '/mvc'],
     'app' => ['type' => 'prod'],
 ];

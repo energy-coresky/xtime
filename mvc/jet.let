@@ -18,6 +18,5 @@
 
 :caller     1 == :count ? '' : Jet::$tpl[:count - 2][1]
 :_1         $sky->_1
-:loop       0 != count(Jet::$loop)
 :dev        'WINNT' == PHP_OS
 :prod       ! :dev
