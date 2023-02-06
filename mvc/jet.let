@@ -7,16 +7,13 @@
 :std       '__std' == Jet::$tpl[0][0]
 :list       'list' == Jet::$tpl[0][1]
 
-:fn0        explode('_', Jet::$fn, 2)[0]
-:fn1        explode('_', Jet::$fn, 2)[1]
-:design     'dm' == :fn0 || 'd' == :fn0
-:mob        'dm' == :fn0 || 'm' == :fn0
+:main       'main' == Jet::$fn[0] /* main ware */
+:mob        'm' == Jet::$fn[1]
 :pc         ! :mob
-:style      explode('-', :fn1)[0]
-:layout     explode('-', :fn1)[1]
+
+:layout     Jet::$fn[2]
 :svg        'svg' == :layout
 
 :caller     1 == :count ? '' : Jet::$tpl[:count - 2][1]
-:_1         $sky->_1
 :dev        'WINNT' == PHP_OS
 :prod       ! :dev
